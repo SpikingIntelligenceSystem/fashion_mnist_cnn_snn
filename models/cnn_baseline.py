@@ -1,1 +1,1 @@
-# Todo: Write ANN model here.
+# Todo: Write cnn model here.
