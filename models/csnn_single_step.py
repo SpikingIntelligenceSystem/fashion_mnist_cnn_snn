@@ -36,6 +36,6 @@ class FashionCSNN_SingleStep(nn.Module):
         x = self.fc1(x)
         x = self.lif_conn(x)
         x = self.fc2(x)
-        _, mem_out = self.lif_out(x)  # Spk not needed in this model
+        _, mem_out = self.lif_out(x)
         return mem_out
     # Pass data through network and return membrane
