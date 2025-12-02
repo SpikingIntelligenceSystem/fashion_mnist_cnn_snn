@@ -1,2 +1,3 @@
 # fashion_mnist_cnn_snn
-Convolutional spiking neural network / artificial neural network comparison trained on MNIST fashion dataset 
+## Overview
+Personal project containing 3 convolutional neural network models all trained to identify MNIST 28*28 greyscale clothing images.
