@@ -7,7 +7,7 @@ import json
 import os
 
 """
-To Initiate Training, Paste Into Console In Project Root:
+To Initiate Training, Paste Into Terminal In Project Root:
     py -m train_scripts.train_cnn
 """
 
