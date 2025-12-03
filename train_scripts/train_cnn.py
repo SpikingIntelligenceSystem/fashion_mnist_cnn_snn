@@ -59,7 +59,7 @@ def train_model(model, loader, device, optimizer, criterion):
         loss.backward()
         optimizer.step()
 
-        current_loss += loss.item() * images.size(0)  # Evaluates loss
+        current_loss += loss.item() * images.size(0)  # Counts current loss for epoch
         preds = logits.argmax(dim=1)
         correct_ids += (preds == labels).sum().item()  # Counts correct images
         total_ids += labels.size(0)  # Counts total identified images
