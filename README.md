@@ -101,13 +101,13 @@ Needed dependencies can be installed with the command:
 All training scripts are run from the repository root so package imports work properly.
 Scripts will download needed dataset (if not previously downloaded), train for the specified amount of epochs and other specified settings, and saves necessary data to results folder.
 
-### Training The CNN
+### Training The CNN:
 **py -m train_scripts.train_cnn**
 
-### Training The CSNN Single Step
+### Training The CSNN Single Step:
 **py -m train_scripts.train_csnn_single_step**
 
-### Training The CSNN Temporal
+### Training The CSNN Temporal:
 **py -m train_scripts.train_csnn_temporal**
 
 ---
