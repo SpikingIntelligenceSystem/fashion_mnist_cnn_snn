@@ -39,12 +39,13 @@ class FashionCSNN_Temporal(nn.Module):
             x_t = self.conv2(x_t)
             x_t = self.lif2(x_t)
             x_t = self.pool(x_t)
+            x_t = x_t.view(x_t.size(0), -1)  # Flatten
             x_t = self.fc1(x_t)
             x_t = self.lif_conn(x_t)
             x_t = self.fc2(x_t)
             _, mem_out = self.lif_out(x_t)
-            # Pass data through network
             mem_rec.append(mem_out)
         logits = mem_rec.mean(dim=0)  # Shape: [batch, 10]
         mem_rec = torch.stack(mem_rec)  # Shape: [T, batch, 10]
         return logits, mem_rec
+    # Pass data through network and return logits and membrane
