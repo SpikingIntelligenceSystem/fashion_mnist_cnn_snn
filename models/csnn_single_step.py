@@ -9,7 +9,7 @@ class FashionCSNN_SingleStep(nn.Module):
         if spike_grad is None:
             spike_grad = surrogate.atan()
 
-        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1),
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)
         self.lif1 = snn.Leaky(
             beta=beta, spike_grad=spike_grad, init_hidden=True)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
