@@ -120,7 +120,7 @@ py -m train_scripts.train_csnn_temporal
 | Model        | Epochs | Accuracy % |
 |--------------|--------|------------|
 | CNN          | 10     | 92.12      |
-| CSNN-Single  |        |            |
+| CSNN-Single  | 10     | 90.65      |
 | CSNN-Temporal|        |            |
 
 Todo: Add comparison graph
@@ -139,11 +139,11 @@ Below are the parameters I used on the models to generate my results:
 
 | Parameter | Model: CNN  | Model: CSNN-Single | Model: CNN-Temporal |
 |-----------|-------------|--------------------|---------------------|
-| Batch Size| 128         |                    |                     |           
-| Loss Type | CrossEntropy|                    |                     |
-| Optimizer | Adam        |                    |                     |
-| Learn Rate| 1e-3        |                    |                     |
-| Seed      | 0           |                    |                     |
+| Batch Size| 128         | 128                |                     |           
+| Loss Type | CrossEntropy| CrossEntropy       |                     |
+| Optimizer | Adam        | Adam               |                     |
+| Learn Rate| 1e-3        | 1e-3               |                     |
+| Seed      | 0           | 0                  |                     |
 | Num Steps | N/A         | 1                  |                     |
 
 ---
