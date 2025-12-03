@@ -132,10 +132,10 @@ Todo: add training loss curve comparison graph
 
 ## Reproducability
 
-**Python 3.11.6** was used to create this project.
+**Python 3.11.6** interpreter was used to create this project.
 
 ### Parameters
-Below are the parameters I used on my models to generate my results:
+Below are the parameters I used on the models to generate my results:
 
 | Parameter | Model: CNN  | Model: CSNN-Single | Model: CNN-Temporal |
 |-----------|-------------|--------------------|---------------------|
