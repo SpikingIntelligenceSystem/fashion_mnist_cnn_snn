@@ -81,14 +81,16 @@ Fully temporal spiking CNN that runs over multiple time steps. Uses spike-encode
 ## Environment Setup
 A virtual Python environment is reccomended. 
 To activate a python environment, paste this command into the repo root:
-**python -m venv .venv**
-
+```text
+python -m venv .venv
+```
 ---
 
 ## Dependencies
 Needed dependencies can be installed with the command:
-**pip install -r requirements.txt**
-
+```text
+pip install -r requirements.txt
+```
 ---
 
 ## Training Scripts
@@ -96,13 +98,19 @@ All training scripts are run from the repository root so package imports work pr
 Scripts will download needed dataset (if not previously downloaded), train for the specified amount of epochs and other specified settings, and saves necessary data to results folder.
 
 ### Training The CNN:
-**py -m train_scripts.train_cnn**
+```text
+py -m train_scripts.train_cnn
+```
 
 ### Training The CSNN Single Step:
-**py -m train_scripts.train_csnn_single_step**
+```text
+py -m train_scripts.train_csnn_single_step
+```
 
 ### Training The CSNN Temporal:
-**py -m train_scripts.train_csnn_temporal**
+```text
+py -m train_scripts.train_csnn_temporal
+```
 
 ---
 
