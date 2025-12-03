@@ -69,12 +69,6 @@ FASHION_MNIST_CNN_SNN/
 ### CNN Baseline
 Standard convolutional neural network for 28×28 grayscale Fashion-MNIST
 images.
-- Loss: CrossEntropyLoss
-- Optimizer: Adam
-- Epochs: 10
-- Batch size: 128
-- Learning rate: 1e-3
-- Seed: 0
 
 ### CSNN Single Step
 Spiking CNN using snnTorch LIF layers. Processes each image in a single time step; behaves like a hybrid CNN/SNN model. Used to compare “one-shot” spiking behavior to the CNN baseline.
