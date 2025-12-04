@@ -81,8 +81,7 @@ def evaluate_model(model, loader, device):
             preds = logits.argmax(dim=1)
             correct_ids += (preds == labels).sum().item()
             total_ids += labels.size(0)
-            total_evaluation = correct_ids / total_ids
-    return total_evaluation
+    return correct_ids / total_ids  # Final accuracy
 
 
 def main():
