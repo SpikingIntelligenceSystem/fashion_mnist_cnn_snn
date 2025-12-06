@@ -15,7 +15,7 @@ To Initiate Training, Paste Into Terminal In Project Root:
 # Model configurations
 batch_size = 128
 num_epochs = 10
-num_steps = 150
+num_steps = 50
 learn_rate = 1e-4
 seed = 0
 # Model configurations
@@ -63,7 +63,7 @@ def train_model(model, loader, device, optimizer, criterion, num_steps):
     for images, labels in loader:
         labels = labels.to(device)
         spikes = spike_encode(images, num_steps, device)
-        logits, mem_rec = model(spikes)  # Import logits/membrane
+        logits, _ = model(spikes)  # Import logits
         optimizer.zero_grad()
 
         loss = criterion(logits, labels)
@@ -111,14 +111,14 @@ def main():
 
     for epoch in range(num_epochs):
         loss, accuracy = train_model(
-            model, train_loader, device, optimizer, criterion)
+            model, train_loader, device, optimizer, criterion, num_steps)
         epoch_losses.append(loss)
         epoch_accs.append(accuracy)
 
         print(f"Epoch: {epoch+1}/{num_epochs}")
         print(
             f"Training Loss: {loss:.4f} /// Training Accuracy: {accuracy*100:.2f}%")
-    total_accuracy = evaluate_model(model, test_loader, device)
+    total_accuracy = evaluate_model(model, test_loader, device, num_steps)
     print(
         f"Final Evaluated Accuracy Of CSNN Single: {total_accuracy*100:.2f}%")
 
