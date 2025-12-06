@@ -16,7 +16,7 @@ To Initiate Training, Paste Into Terminal In Project Root:
 # Model configurations
 batch_size = 128
 num_epochs = 10
-num_steps = 50
+num_steps = 10
 learn_rate = 1e-4
 seed = 0
 # Model configurations
@@ -55,7 +55,7 @@ def spike_encode(images, num_steps, device):
 # Rate encodes images into spikes
 
 
-def train_model(model, loader, device, optimizer, criterion, num_steps, log_interval=5):
+def train_model(model, loader, device, optimizer, criterion, num_steps, log_interval=25):
     model.train()
     current_loss = 0.0
     correct_ids = 0
