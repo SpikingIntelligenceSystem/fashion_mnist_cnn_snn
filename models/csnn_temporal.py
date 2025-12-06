@@ -10,7 +10,7 @@ class FashionCSNN_Temporal(nn.Module):
         if spike_grad is None:
             spike_grad = surrogate.atan()
 
-        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1),
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)
         self.lif1 = snn.Leaky(
             beta=beta, spike_grad=spike_grad, init_hidden=True)
         self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
@@ -29,7 +29,7 @@ class FashionCSNN_Temporal(nn.Module):
 
     def forward(self, spk_in):
         utils.reset(self)  # Reset hidden state
-        T, batch, _ = spk_in.shape  # T, batch, 784
+        T, batch, _ = spk_in.shape
         mem_rec = []
 
         for t in range(T):
@@ -45,7 +45,7 @@ class FashionCSNN_Temporal(nn.Module):
             x_t = self.fc2(x_t)
             _, mem_out = self.lif_out(x_t)
             mem_rec.append(mem_out)
-        logits = mem_rec.mean(dim=0)  # Shape: [batch, 10]
-        mem_rec = torch.stack(mem_rec)  # Shape: [T, batch, 10]
+        mem_rec = torch.stack(mem_rec)
+        logits = mem_rec.mean(dim=0)
         return logits, mem_rec
     # Pass data through network and return logits and membrane
