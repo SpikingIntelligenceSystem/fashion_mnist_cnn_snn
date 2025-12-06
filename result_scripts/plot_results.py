@@ -52,6 +52,7 @@ def main():
     plt.grid(axis="y", linestyle=":", linewidth=0.5)
     plt.tight_layout()
     plt.show()
+    # Accuracy bar plot
 
 
 if __name__ == "__main__":
