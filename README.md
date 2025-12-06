@@ -121,7 +121,7 @@ py -m train_scripts.train_csnn_temporal
 |--------------|--------|------------|
 | CNN          | 10     | 92.12      |
 | CSNN-Single  | 10     | 90.65      |
-| CSNN-Temporal|        |            |
+| CSNN-Temporal| 10     | 89.41      |
 
 Todo: Add comparison graph
 
@@ -139,12 +139,12 @@ Below are the parameters I used on the models to generate my results:
 
 | Parameter | Model: CNN  | Model: CSNN-Single | Model: CNN-Temporal |
 |-----------|-------------|--------------------|---------------------|
-| Batch Size| 128         | 128                |                     |           
-| Loss Type | CrossEntropy| CrossEntropy       |                     |
-| Optimizer | Adam        | Adam               |                     |
-| Learn Rate| 1e-3        | 1e-3               |                     |
-| Seed      | 0           | 0                  |                     |
-| Num Steps | N/A         | 1                  |                     |
+| Batch Size| 128         | 128                | 128                 |           
+| Loss Type | CrossEntropy| CrossEntropy       | CrossEntropy        |
+| Optimizer | Adam        | Adam               | Adam                |
+| Learn Rate| 1e-3        | 1e-3               | 1e-4                |
+| Seed      | 0           | 0                  | 0                   |
+| Num Steps | N/A         | 1                  | 10                  |
 
 ---
 
