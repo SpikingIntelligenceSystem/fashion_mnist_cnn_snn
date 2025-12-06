@@ -131,7 +131,7 @@ def main():
         f"Final Evaluated Accuracy Of CSNN Single: {total_accuracy*100:.2f}%")
 
     os.makedirs("results", exist_ok=True)
-    with open("results/csnn_single_loss.json", "w") as f:
+    with open("results/csnn_temporal_loss.json", "w") as f:
         json.dump(epoch_losses, f)
 
 
