@@ -6,6 +6,7 @@ import snntorch.spikegen as spikegen
 from models.csnn_temporal import FashionCSNN_Temporal
 import os
 import json
+import time
 
 """
 To Initiate Training, Paste Into Terminal In Project Root:
@@ -33,8 +34,7 @@ def identify_device():
 
 def establish_dataloaders(batch_size):
     transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,))
+        transforms.ToTensor()
     ])
     train_data = datasets.FashionMNIST(
         root="./data", train=True, download=True, transform=transform)
@@ -55,12 +55,14 @@ def spike_encode(images, num_steps, device):
 # Rate encodes images into spikes
 
 
-def train_model(model, loader, device, optimizer, criterion, num_steps):
+def train_model(model, loader, device, optimizer, criterion, num_steps, log_interval=5):
     model.train()
     current_loss = 0.0
     correct_ids = 0
     total_ids = 0
-    for images, labels in loader:
+    num_batches = len(loader)
+    start_time = time.time()
+    for batch_idx, (images, labels) in enumerate(loader, start=1):
         labels = labels.to(device)
         spikes = spike_encode(images, num_steps, device)
         logits, _ = model(spikes)  # Import logits
@@ -74,6 +76,12 @@ def train_model(model, loader, device, optimizer, criterion, num_steps):
         preds = logits.argmax(dim=1)
         correct_ids += (preds == labels).sum().item()
         total_ids += labels.size(0)
+        # Computation progress (if loop):
+        if batch_idx % log_interval == 0 or batch_idx == num_batches:
+            elapsed = time.time() - start_time
+            print(f"Batch: {batch_idx}/{num_batches}")
+            print(
+                f"Loss: {loss.item():.3f} /// Elapsed Time: {elapsed:.2f} seconds.")
     epoch_loss = current_loss / total_ids
     epoch_accuracy = correct_ids / total_ids
     return epoch_loss, epoch_accuracy
